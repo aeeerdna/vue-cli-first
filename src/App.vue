@@ -1,19 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p>{{ saluto }}</p>
+    <div v-for="(item, index) in test" :key="index">
+      {{ item }}
+      <FirstComponent />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import FirstComponent from "./components/first-component.vue";
 
 export default {
-  name: 'App',
+  name: "App",
+  data() {
+    return {
+      saluto: "Hi to everybody",
+      test: [1, 3, 6, 9, 12, 1],
+    };
+  },
   components: {
-    HelloWorld
-  }
-}
+    FirstComponent,
+  },
+};
 </script>
 
 <style lang="scss">
